@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "django-rest-auth"
+version = "0.1.0"
+description = "boilerplate code for djando rest projects with auth"
+authors = ["Gabriel Santos <gabriel.santos@blitzpay.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+psycopg2-binary = "^2.9.9"
+Django = "^5.1"
+djangorestframework = "^3.15.2"
+djangorestframework-simplejwt = "^5.3.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 127
+target-version = ['py38', 'py39', 'py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
