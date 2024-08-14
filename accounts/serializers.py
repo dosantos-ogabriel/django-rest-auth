@@ -9,7 +9,11 @@ class SignUpSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["email", "password", "token", "name"]
+        fields = [
+            "email",
+            "password",
+            "token",
+        ]
         read_only_fields = ["token"]
         extra_kwargs = {"password": {"write_only": True}}
 
@@ -22,12 +26,13 @@ class SignInSerializer(TokenObtainPairSerializer):
     def get_token(self, user):
         token = self.get_token(user)
         token["email"] = user.email
-        token["name"] = user.name
         return token
 
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        read_only_fields = ["email", "name"]
+        read_only_fields = [
+            "email",
+        ]
         fields = read_only_fields

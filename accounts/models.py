@@ -19,7 +19,3 @@ class User(AbstractUser):
     @property
     def token(self) -> str:
         return str(self.refresh_token.access_token)
-
-    @property
-    def refresh(self) -> str:
-        return str(self.refresh_token)
