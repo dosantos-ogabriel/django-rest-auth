@@ -5,7 +5,6 @@ from .models import User
 
 
 class SignUpSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(max_length=255, required=True)
 
     class Meta:
         model = User
